@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "tesserect"
+version = "0.1.0"
+description = "Similarity network-based hierarchical text clustering"
+authors = ["Philipp Kessling <p.kessling@leibniz-hbi.de>", "Felix Münch <f.muench@lebniz-hbi.de>"]
+readme  = "README.md"
+license = "MIT"
+repository  = "https://github.com/Leibniz-HBI/tesserect"
+# homepage = "https://pypi.org/project/tegracli/"
+classifiers = [
+		"Development Status :: 3 - Alpha",
+		"Intended Audience :: Science/Research",
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "*"
+pydantic-core = "*"
+infomap = "*"
+pytest = "*"
+sentence-transformers = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+black = "*"
+isort = "*"
+pytest-cov = "*"
+coverage = "*"
+pydocstyle = "*"
+ruff = "*"
+pre-commit = "*"
+
+
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cu113"
+priority = "supplemental"
+
+[tool.pytest.ini_options]
+addopts = "--disable-socket --cov-report html:tests/coverage --cov=tesserect --capture=sys"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
